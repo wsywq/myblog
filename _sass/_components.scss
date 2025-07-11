@@ -1,0 +1,465 @@
+// 导入变量
+@import 'variables';
+
+// 文章卡片组件
+.post-card {
+  .card {
+    border: none;
+    box-shadow: $box-shadow;
+    transition: $transition-base;
+    height: $post-card-height;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $box-shadow-lg;
+    }
+    
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      
+      .card-title {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        margin-bottom: $spacer;
+        
+        a {
+          color: $dark-color;
+          text-decoration: none;
+          
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+      
+      .card-text {
+        flex: 1;
+        color: $secondary-color;
+        font-size: $font-size-sm;
+        line-height: $line-height-base;
+      }
+      
+      .post-meta {
+        margin-top: $spacer;
+        
+        small {
+          color: $secondary-color;
+          font-size: $font-size-xs;
+          
+          i {
+            margin-right: $spacer * 0.25;
+          }
+        }
+      }
+      
+      .post-categories,
+      .post-tags {
+        margin-top: $spacer * 0.5;
+        
+        .badge {
+          font-size: $font-size-xs;
+          margin-right: $spacer * 0.25;
+        }
+      }
+    }
+    
+    .card-footer {
+      background-color: transparent;
+      border-top: 1px solid $border-color;
+      padding: $spacer;
+      
+      .btn {
+        font-size: $font-size-sm;
+        padding: $spacer * 0.25 $spacer;
+      }
+    }
+  }
+}
+
+// 分页组件
+.pagination {
+  .page-item {
+    .page-link {
+      color: $primary-color;
+      border-color: $border-color;
+      
+      &:hover {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: white;
+      }
+    }
+    
+    &.active {
+      .page-link {
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+// 搜索组件
+.search-form {
+  .form-control {
+    border-radius: $border-radius-lg;
+    border: 1px solid $search-border;
+    
+    &:focus {
+      border-color: $search-focus-border;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+  }
+  
+  .btn {
+    border-radius: 0 $border-radius-lg $border-radius-lg 0;
+  }
+}
+
+// 标签云组件
+.tag-cloud {
+  .tag-link {
+    display: inline-block;
+    margin: $spacer * 0.25;
+    padding: $spacer * 0.25 $spacer * 0.5;
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    border-radius: $border-radius;
+    transition: $transition-base;
+    font-size: $font-size-sm;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: scale(1.05);
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+// 分类卡片组件
+.category-card {
+  background-color: $light-color;
+  padding: $spacer * 1.5;
+  border-radius: $border-radius;
+  text-align: center;
+  transition: $transition-base;
+  border: 1px solid $border-color;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-lg;
+    border-color: $primary-color;
+  }
+  
+  h5 {
+    margin-bottom: $spacer * 0.5;
+    color: $primary-color;
+    font-weight: 600;
+  }
+  
+  p {
+    margin-bottom: $spacer;
+    color: $secondary-color;
+    font-size: $font-size-sm;
+  }
+  
+  .btn {
+    font-size: $font-size-sm;
+    padding: $spacer * 0.25 $spacer;
+  }
+}
+
+// 作者信息组件
+.author-info {
+  text-align: center;
+  padding: $spacer;
+  
+  .author-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: $spacer;
+    border: 3px solid $primary-color;
+  }
+  
+  h6 {
+    margin-bottom: $spacer * 0.5;
+    color: $dark-color;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: $font-size-sm;
+    color: $secondary-color;
+    margin-bottom: $spacer;
+    line-height: $line-height-base;
+  }
+  
+  .author-social {
+    a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      background-color: $primary-color;
+      color: white;
+      border-radius: 50%;
+      margin: 0 $spacer * 0.25;
+      transition: $transition-base;
+      
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        transform: scale(1.1);
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// 热门文章组件
+.popular-posts {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  
+  li {
+    margin-bottom: $spacer;
+    
+    a {
+      display: flex;
+      align-items: center;
+      color: $body-color;
+      text-decoration: none;
+      transition: $transition-base;
+      padding: $spacer * 0.5;
+      border-radius: $border-radius;
+      
+      &:hover {
+        color: $primary-color;
+        background-color: rgba($primary-color, 0.1);
+      }
+      
+      .popular-post-image {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: $border-radius;
+        margin-right: $spacer;
+      }
+      
+      .popular-post-info {
+        flex: 1;
+        
+        h6 {
+          margin-bottom: $spacer * 0.25;
+          font-size: $font-size-sm;
+          font-weight: 500;
+        }
+        
+        small {
+          color: $secondary-color;
+          font-size: $font-size-xs;
+        }
+      }
+    }
+  }
+}
+
+// 订阅组件
+.newsletter-form {
+  .input-group {
+    .form-control {
+      border-radius: $border-radius 0 0 $border-radius;
+      border: 1px solid $border-color;
+      
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+      }
+    }
+    
+    .btn {
+      border-radius: 0 $border-radius $border-radius 0;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// 分享按钮组件
+.share-buttons {
+  .btn {
+    margin-right: $spacer;
+    font-size: $font-size-sm;
+    padding: $spacer * 0.25 $spacer;
+    
+    i {
+      margin-right: $spacer * 0.25;
+    }
+  }
+}
+
+// 相关文章组件
+.related-posts {
+  .related-post-card {
+    background-color: $light-color;
+    padding: $spacer;
+    border-radius: $border-radius;
+    margin-bottom: $spacer;
+    transition: $transition-base;
+    border: 1px solid $border-color;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $box-shadow;
+      border-color: $primary-color;
+    }
+    
+    img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: $border-radius;
+      margin-bottom: $spacer;
+    }
+    
+    h6 {
+      margin-bottom: $spacer * 0.5;
+      font-weight: 500;
+      
+      a {
+        color: $body-color;
+        text-decoration: none;
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    
+    small {
+      color: $secondary-color;
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+// 统计组件
+.stats-widget {
+  background-color: $light-color;
+  padding: $spacer * 1.5;
+  border-radius: $border-radius;
+  text-align: center;
+  margin-bottom: $spacer * 2;
+  
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin-bottom: $spacer * 0.25;
+  }
+  
+  .stat-label {
+    font-size: $font-size-sm;
+    color: $secondary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+// 加载动画组件
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba($primary-color, 0.3);
+  border-radius: 50%;
+  border-top-color: $primary-color;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// 工具提示组件
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: $dark-color;
+    color: white;
+    text-align: center;
+    border-radius: $border-radius;
+    padding: $spacer * 0.5;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: $font-size-xs;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: $dark-color transparent transparent transparent;
+    }
+  }
+  
+  &:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+// 深色主题适配
+body.dark-theme {
+  .post-card .card {
+    background-color: lighten($dark-bg, 5%);
+    border-color: lighten($border-color, 20%);
+    
+    .card-title a {
+      color: $dark-text;
+      
+      &:hover {
+        color: $dark-link;
+      }
+    }
+    
+    .card-text {
+      color: rgba($dark-text, 0.8);
+    }
+  }
+  
+  .category-card,
+  .author-info,
+  .popular-posts li a,
+  .related-post-card {
+    background-color: lighten($dark-bg, 5%);
+    border-color: lighten($border-color, 20%);
+  }
+  
+  .stats-widget {
+    background-color: lighten($dark-bg, 5%);
+  }
+} 

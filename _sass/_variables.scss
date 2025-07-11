@@ -1,0 +1,105 @@
+// 颜色变量
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+// 主题颜色
+$body-bg: #ffffff;
+$body-color: #212529;
+$link-color: $primary-color;
+$link-hover-color: darken($primary-color, 15%);
+
+// 深色主题
+$dark-bg: #1a1a1a;
+$dark-text: #ffffff;
+$dark-link: #4dabf7;
+$dark-link-hover: #74c0fc;
+
+// 字体
+$font-family-base: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+// 字体大小
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.75rem;
+
+// 行高
+$line-height-base: 1.6;
+$line-height-lg: 1.8;
+$line-height-sm: 1.4;
+
+// 间距
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+// 边框
+$border-width: 1px;
+$border-color: #dee2e6;
+$border-radius: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-sm: 0.25rem;
+
+// 阴影
+$box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+$box-shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+$box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+// 过渡
+$transition-base: all 0.15s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+$transition-collapse: height 0.35s ease;
+
+// 断点
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// 容器最大宽度
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// 博客特定变量
+$post-card-height: 400px;
+$sidebar-width: 300px;
+$header-height: 70px;
+$footer-height: 200px;
+
+// 代码高亮主题
+$code-bg: #f8f9fa;
+$code-color: #e83e8c;
+$code-border-radius: 0.25rem;
+
+// 搜索框
+$search-bg: #f8f9fa;
+$search-border: #dee2e6;
+$search-focus-border: $primary-color;
+
+// 标签云
+$tag-min-size: 12px;
+$tag-max-size: 24px;
+$tag-color: $secondary-color;
+$tag-hover-color: $primary-color; 

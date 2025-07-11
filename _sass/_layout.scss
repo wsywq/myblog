@@ -1,0 +1,564 @@
+// 导入变量
+@import 'variables';
+
+// 主内容区域
+.main-content {
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  padding: $spacer * 2 0;
+}
+
+// 头部样式
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: $body-bg;
+  border-bottom: 1px solid $border-color;
+  transition: $transition-base;
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: $font-size-lg;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    transition: $transition-base;
+    
+    &:hover {
+      color: $primary-color !important;
+    }
+  }
+  
+  .search-form {
+    .form-control {
+      border-radius: $border-radius-lg;
+      border: 1px solid $search-border;
+      
+      &:focus {
+        border-color: $search-focus-border;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+      }
+    }
+  }
+  
+  .theme-toggle {
+    .btn {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// 搜索结果显示
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: $body-bg;
+  border: 1px solid $border-color;
+  border-top: none;
+  border-radius: 0 0 $border-radius $border-radius;
+  box-shadow: $box-shadow-lg;
+  z-index: 1001;
+  
+  .search-results-content {
+    padding: $spacer;
+    
+    h6 {
+      margin-bottom: $spacer;
+      color: $secondary-color;
+    }
+  }
+}
+
+// 首页样式
+.home {
+  .hero-section {
+    padding: $spacer * 4 0;
+    background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 20%) 100%);
+    color: white;
+    margin-bottom: $spacer * 3;
+    
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: $spacer;
+    }
+    
+    .hero-description {
+      font-size: $font-size-lg;
+      margin-bottom: $spacer * 2;
+      opacity: 0.9;
+    }
+    
+    .hero-buttons {
+      .btn {
+        margin-right: $spacer;
+        padding: $spacer $spacer * 2;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: $spacer * 2;
+    text-align: center;
+  }
+  
+  .latest-posts {
+    margin-bottom: $spacer * 4;
+  }
+  
+  .categories-section {
+    .category-card {
+      background-color: $light-color;
+      padding: $spacer * 1.5;
+      border-radius: $border-radius;
+      text-align: center;
+      transition: $transition-base;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $box-shadow-lg;
+      }
+      
+      h5 {
+        margin-bottom: $spacer * 0.5;
+        color: $primary-color;
+      }
+      
+      p {
+        margin-bottom: $spacer;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// 文章页面样式
+.post {
+  .post-header {
+    margin-bottom: $spacer * 3;
+    
+    .post-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: $spacer;
+      color: $dark-color;
+    }
+    
+    .post-meta {
+      margin-bottom: $spacer;
+      
+      span {
+        margin-right: $spacer;
+        color: $secondary-color;
+        font-size: $font-size-sm;
+        
+        i {
+          margin-right: $spacer * 0.25;
+        }
+      }
+    }
+    
+    .post-categories,
+    .post-tags {
+      margin-bottom: $spacer * 0.5;
+      
+      .badge {
+        margin-right: $spacer * 0.25;
+        font-size: $font-size-xs;
+      }
+    }
+  }
+  
+  .post-image {
+    margin-bottom: $spacer * 2;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius-lg;
+    }
+  }
+  
+  .post-toc {
+    background-color: $light-color;
+    padding: $spacer;
+    border-radius: $border-radius;
+    margin-bottom: $spacer * 2;
+    
+    h5 {
+      margin-bottom: $spacer;
+      color: $primary-color;
+    }
+    
+    nav {
+      ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+      }
+      
+      .toc-link {
+        display: block;
+        padding: $spacer * 0.25 0;
+        color: $body-color;
+        text-decoration: none;
+        transition: $transition-base;
+        
+        &:hover {
+          color: $primary-color;
+          padding-left: $spacer * 0.5;
+        }
+      }
+    }
+  }
+  
+  .post-content {
+    font-size: $font-size-base;
+    line-height: $line-height-lg;
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: $spacer * 2;
+      margin-bottom: $spacer;
+      color: $dark-color;
+    }
+    
+    p {
+      margin-bottom: $spacer;
+    }
+    
+    img {
+      margin: $spacer 0;
+    }
+    
+    blockquote {
+      margin: $spacer * 2 0;
+    }
+    
+    pre {
+      margin: $spacer * 2 0;
+    }
+  }
+  
+  .post-footer {
+    margin-top: $spacer * 3;
+    padding-top: $spacer * 2;
+    border-top: 1px solid $border-color;
+    
+    .post-share {
+      margin-bottom: $spacer * 2;
+      
+      h6 {
+        margin-bottom: $spacer;
+        color: $secondary-color;
+      }
+      
+      .share-buttons {
+        .btn {
+          margin-right: $spacer;
+        }
+      }
+    }
+    
+    .related-posts {
+      h6 {
+        margin-bottom: $spacer;
+        color: $secondary-color;
+      }
+      
+      .related-post-card {
+        background-color: $light-color;
+        padding: $spacer;
+        border-radius: $border-radius;
+        margin-bottom: $spacer;
+        transition: $transition-base;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: $box-shadow;
+        }
+        
+        img {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          border-radius: $border-radius;
+          margin-bottom: $spacer;
+        }
+        
+        h6 {
+          margin-bottom: $spacer * 0.5;
+          
+          a {
+            color: $body-color;
+            text-decoration: none;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 侧边栏样式
+.sidebar {
+  .sidebar-widget {
+    background-color: $light-color;
+    padding: $spacer * 1.5;
+    border-radius: $border-radius;
+    margin-bottom: $spacer * 2;
+    
+    h5 {
+      margin-bottom: $spacer;
+      color: $primary-color;
+      font-weight: 600;
+    }
+    
+    .search-form {
+      .input-group {
+        .form-control {
+          border-radius: $border-radius 0 0 $border-radius;
+        }
+        
+        .btn {
+          border-radius: 0 $border-radius $border-radius 0;
+        }
+      }
+    }
+    
+    .author-info {
+      text-align: center;
+      
+      .author-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: $spacer;
+      }
+      
+      h6 {
+        margin-bottom: $spacer * 0.5;
+        color: $dark-color;
+      }
+      
+      p {
+        font-size: $font-size-sm;
+        color: $secondary-color;
+        margin-bottom: $spacer;
+      }
+      
+      .author-social {
+        a {
+          display: inline-block;
+          width: 35px;
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          background-color: $primary-color;
+          color: white;
+          border-radius: 50%;
+          margin: 0 $spacer * 0.25;
+          transition: $transition-base;
+          
+          &:hover {
+            background-color: darken($primary-color, 10%);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+    
+    .category-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      
+      li {
+        margin-bottom: $spacer * 0.5;
+        
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: $spacer * 0.5;
+          color: $body-color;
+          text-decoration: none;
+          border-radius: $border-radius;
+          transition: $transition-base;
+          
+          &:hover {
+            background-color: rgba($primary-color, 0.1);
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    
+    .tag-cloud {
+      .tag-link {
+        display: inline-block;
+        margin: $spacer * 0.25;
+        padding: $spacer * 0.25 $spacer * 0.5;
+        background-color: $primary-color;
+        color: white;
+        text-decoration: none;
+        border-radius: $border-radius;
+        transition: $transition-base;
+        
+        &:hover {
+          background-color: darken($primary-color, 10%);
+          transform: scale(1.05);
+        }
+      }
+    }
+    
+    .popular-posts {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      
+      li {
+        margin-bottom: $spacer;
+        
+        a {
+          display: flex;
+          align-items: center;
+          color: $body-color;
+          text-decoration: none;
+          transition: $transition-base;
+          
+          &:hover {
+            color: $primary-color;
+          }
+          
+          .popular-post-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: $border-radius;
+            margin-right: $spacer;
+          }
+          
+          .popular-post-info {
+            flex: 1;
+            
+            h6 {
+              margin-bottom: $spacer * 0.25;
+              font-size: $font-size-sm;
+            }
+          }
+        }
+      }
+    }
+    
+    .newsletter-form {
+      .input-group {
+        .form-control {
+          border-radius: $border-radius 0 0 $border-radius;
+        }
+        
+        .btn {
+          border-radius: 0 $border-radius $border-radius 0;
+        }
+      }
+    }
+  }
+}
+
+// 页脚样式
+.site-footer {
+  background-color: $dark-color;
+  color: white;
+  padding: $spacer * 3 0;
+  margin-top: $spacer * 4;
+  
+  h5, h6 {
+    color: white;
+    margin-bottom: $spacer;
+  }
+  
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    
+    &:hover {
+      color: white;
+    }
+  }
+  
+  .social-links {
+    a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-right: $spacer;
+      transition: $transition-base;
+      
+      &:hover {
+        background-color: $primary-color;
+        transform: scale(1.1);
+      }
+    }
+  }
+  
+  .footer-stats {
+    margin-top: $spacer * 3;
+    padding-top: $spacer * 2;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: $primary-color;
+    }
+    
+    .stat-label {
+      font-size: $font-size-sm;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .home {
+    .hero-section {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-description {
+        font-size: $font-size-base;
+      }
+    }
+  }
+  
+  .post {
+    .post-header {
+      .post-title {
+        font-size: 2rem;
+      }
+    }
+  }
+  
+  .sidebar {
+    margin-top: $spacer * 2;
+  }
+} 

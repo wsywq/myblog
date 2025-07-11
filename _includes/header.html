@@ -1,0 +1,67 @@
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- 网站Logo -->
+            <a class="navbar-brand" href="{{ '/' | relative_url }}">
+                <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="{{ site.title }}" height="30" class="d-inline-block align-text-top">
+                {{ site.title }}
+            </a>
+
+            <!-- 移动端折叠按钮 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 导航菜单 -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ '/' | relative_url }}">首页</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            分类
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% assign categories = site.categories | sort %}
+                            {% for category in categories %}
+                            <li><a class="dropdown-item" href="{{ '/category/' | append: category[0] | relative_url }}">{{ category[0] }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ '/tags' | relative_url }}">标签</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ '/about' | relative_url }}">关于</a>
+                    </li>
+                </ul>
+
+                <!-- 搜索框 -->
+                <form class="d-flex me-3" role="search" id="search-form">
+                    <input class="form-control me-2" type="search" placeholder="搜索文章..." aria-label="Search" id="search-input">
+                    <button class="btn btn-outline-primary" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                <!-- 主题切换 -->
+                <div class="theme-toggle">
+                    <button class="btn btn-outline-secondary btn-sm" id="theme-toggle" title="切换主题">
+                        <i class="bi bi-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 搜索结果显示 -->
+    <div class="search-results" id="search-results" style="display: none;">
+        <div class="container">
+            <div class="search-results-content">
+                <h6>搜索结果</h6>
+                <div id="search-results-list"></div>
+            </div>
+        </div>
+    </div>
+</header> 

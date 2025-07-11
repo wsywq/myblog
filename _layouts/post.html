@@ -1,0 +1,155 @@
+---
+layout: default
+---
+
+<article class="post">
+    <div class="container">
+        <div class="row">
+            <!-- 文章内容 -->
+            <div class="col-lg-8">
+                <!-- 文章头部 -->
+                <header class="post-header">
+                    <h1 class="post-title">{{ page.title }}</h1>
+                    <div class="post-meta">
+                        <span class="post-date">
+                            <i class="bi bi-calendar"></i>
+                            {{ page.date | date: "%Y年%m月%d日" }}
+                        </span>
+                        {% if page.author %}
+                        <span class="post-author">
+                            <i class="bi bi-person"></i>
+                            {{ page.author }}
+                        </span>
+                        {% endif %}
+                        <span class="post-reading-time">
+                            <i class="bi bi-clock"></i>
+                            <span id="reading-time">计算中...</span>
+                        </span>
+                        <span class="post-word-count">
+                            <i class="bi bi-file-text"></i>
+                            <span id="word-count">计算中...</span>
+                        </span>
+                    </div>
+                    {% if page.categories %}
+                    <div class="post-categories">
+                        <i class="bi bi-folder"></i>
+                        {% for category in page.categories %}
+                        <a href="{{ '/category/' | append: category | relative_url }}" class="badge bg-primary">{{ category }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if page.tags %}
+                    <div class="post-tags">
+                        <i class="bi bi-tags"></i>
+                        {% for tag in page.tags %}
+                        <a href="{{ '/tag/' | append: tag | relative_url }}" class="badge bg-secondary">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </header>
+
+                <!-- 特色图片 -->
+                {% if page.image %}
+                <div class="post-image">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid rounded">
+                </div>
+                {% endif %}
+
+                <!-- 文章目录 -->
+                <div class="post-toc" id="post-toc">
+                    <h5>目录</h5>
+                    <nav id="table-of-contents"></nav>
+                </div>
+
+                <!-- 文章内容 -->
+                <div class="post-content">
+                    {{ content }}
+                </div>
+
+                <!-- 文章底部 -->
+                <footer class="post-footer">
+                    <div class="post-share">
+                        <h6>分享文章</h6>
+                                            <div class="share-buttons">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                        <a href="https://service.weibo.com/share/share.php?url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-weibo"></i> 微博
+                        </a>
+                    </div>
+                    </div>
+
+                    <!-- 相关文章 -->
+                    {% if page.tags %}
+                    <div class="related-posts">
+                        <h6>相关文章</h6>
+                        <div class="row">
+                            {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.tags contains page.tags[0]" | limit: 3 %}
+                            {% for post in related_posts %}
+                            <div class="col-md-4">
+                                <div class="related-post-card">
+                                    {% if post.image %}
+                                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="img-fluid">
+                                    {% endif %}
+                                    <h6><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h6>
+                                    <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </footer>
+            </div>
+
+            <!-- 侧边栏 -->
+            <div class="col-lg-4">
+                {% include sidebar.html %}
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- 文章统计脚本 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 计算字数
+    const content = document.querySelector('.post-content');
+    const text = content.textContent || content.innerText;
+    const wordCount = text.length;
+    document.getElementById('word-count').textContent = wordCount + ' 字';
+    
+    // 计算阅读时间
+    const readingTime = Math.ceil(wordCount / 300); // 假设每分钟300字
+    document.getElementById('reading-time').textContent = readingTime + ' 分钟';
+    
+    // 生成目录
+    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const toc = document.getElementById('table-of-contents');
+    
+    if (headings.length > 0) {
+        headings.forEach((heading, index) => {
+            const id = 'heading-' + index;
+            heading.id = id;
+            
+            const link = document.createElement('a');
+            link.href = '#' + id;
+            link.textContent = heading.textContent;
+            link.className = 'toc-link toc-' + heading.tagName.toLowerCase();
+            
+            const li = document.createElement('li');
+            li.appendChild(link);
+            toc.appendChild(li);
+        });
+    } else {
+        document.getElementById('post-toc').style.display = 'none';
+    }
+    
+    // 访问量统计
+    const pageKey = 'page_views_' + window.location.pathname;
+    let views = localStorage.getItem(pageKey) || 0;
+    views = parseInt(views) + 1;
+    localStorage.setItem(pageKey, views);
+});
+</script> 

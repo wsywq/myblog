@@ -1,0 +1,266 @@
+// 导入变量
+@import 'variables';
+
+// 全局重置
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $body-color;
+  background-color: $body-bg;
+  transition: $transition-base;
+}
+
+// 链接样式
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: $transition-base;
+  
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+}
+
+// 标题样式
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: $spacer * 0.5;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $dark-color;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+// 段落样式
+p {
+  margin-top: 0;
+  margin-bottom: $spacer;
+}
+
+// 列表样式
+ul, ol {
+  margin-top: 0;
+  margin-bottom: $spacer;
+  padding-left: $spacer * 1.5;
+}
+
+li {
+  margin-bottom: $spacer * 0.25;
+}
+
+// 代码样式
+code {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  color: $code-color;
+  background-color: $code-bg;
+  padding: 0.2em 0.4em;
+  border-radius: $code-border-radius;
+}
+
+pre {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+  background-color: $code-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $spacer;
+  overflow-x: auto;
+  
+  code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// 表格样式
+table {
+  width: 100%;
+  margin-bottom: $spacer;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: $spacer * 0.5;
+    border: 1px solid $border-color;
+    text-align: left;
+  }
+  
+  th {
+    background-color: $light-color;
+    font-weight: 500;
+  }
+}
+
+// 图片样式
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius;
+}
+
+// 引用样式
+blockquote {
+  margin: $spacer 0;
+  padding: $spacer;
+  border-left: 4px solid $primary-color;
+  background-color: $light-color;
+  font-style: italic;
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// 水平线
+hr {
+  margin: $spacer * 2 0;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+// 按钮基础样式
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  cursor: pointer;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+}
+
+// 徽章样式
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.375rem;
+}
+
+// 工具类
+.text-muted {
+  color: $secondary-color !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+// 深色主题
+body.dark-theme {
+  background-color: $dark-bg;
+  color: $dark-text;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $dark-text;
+  }
+  
+  a {
+    color: $dark-link;
+    
+    &:hover {
+      color: $dark-link-hover;
+    }
+  }
+  
+  code {
+    background-color: lighten($dark-bg, 10%);
+    color: lighten($code-color, 20%);
+  }
+  
+  pre {
+    background-color: lighten($dark-bg, 10%);
+    border-color: lighten($border-color, 20%);
+  }
+  
+  table {
+    th, td {
+      border-color: lighten($border-color, 20%);
+    }
+    
+    th {
+      background-color: lighten($dark-bg, 10%);
+    }
+  }
+  
+  blockquote {
+    background-color: lighten($dark-bg, 10%);
+  }
+  
+  hr {
+    border-color: lighten($border-color, 20%);
+  }
+} 

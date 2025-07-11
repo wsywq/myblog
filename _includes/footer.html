@@ -1,0 +1,75 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <!-- 网站信息 -->
+            <div class="col-lg-4">
+                <h5>{{ site.title }}</h5>
+                <p>{{ site.description }}</p>
+                <p class="text-muted">
+                    © {{ 'now' | date: "%Y" }} {{ site.author }}. 
+                    基于 <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> 构建
+                </p>
+            </div>
+
+            <!-- 快速链接 -->
+            <div class="col-lg-4">
+                <h6>快速链接</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ '/' | relative_url }}">首页</a></li>
+                    <li><a href="{{ '/posts' | relative_url }}">所有文章</a></li>
+                    <li><a href="{{ '/categories' | relative_url }}">分类</a></li>
+                    <li><a href="{{ '/tags' | relative_url }}">标签</a></li>
+                    <li><a href="{{ '/about' | relative_url }}">关于</a></li>
+                </ul>
+            </div>
+
+            <!-- 社交媒体 -->
+            <div class="col-lg-4">
+                <h6>关注我</h6>
+                <div class="social-links">
+                    {% if site.social.github %}
+                    <a href="https://github.com/{{ site.social.github }}" target="_blank" class="social-link">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.social.email %}
+                    <a href="mailto:{{ site.social.email }}" class="social-link">
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                    {% endif %}
+                </div>
+
+                <!-- 订阅 -->
+                <div class="newsletter mt-3">
+                    <h6>订阅更新</h6>
+                    <form class="d-flex" id="newsletter-form">
+                        <input type="email" class="form-control me-2" placeholder="输入邮箱地址" required>
+                        <button type="submit" class="btn btn-primary btn-sm">订阅</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部统计 -->
+        <div class="footer-stats">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <span class="stat-number" id="total-posts">{{ site.posts.size }}</span>
+                    <span class="stat-label">文章</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="stat-number" id="total-categories">{{ site.categories.size }}</span>
+                    <span class="stat-label">分类</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="stat-number" id="total-tags">{{ site.tags.size }}</span>
+                    <span class="stat-label">标签</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="stat-number" id="total-views">0</span>
+                    <span class="stat-label">访问</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer> 

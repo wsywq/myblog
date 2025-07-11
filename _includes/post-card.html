@@ -1,0 +1,91 @@
+<div class="post-card">
+    <div class="card h-100">
+        <!-- 文章图片 -->
+        {% if include.post.image %}
+        <img src="{{ include.post.image | relative_url }}" class="card-img-top" alt="{{ include.post.title }}">
+        {% endif %}
+        
+        <div class="card-body">
+            <!-- 文章标题 -->
+            <h5 class="card-title">
+                <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
+            </h5>
+            
+            <!-- 文章描述 -->
+            {% if include.post.description %}
+            <p class="card-text">{{ include.post.description }}</p>
+            {% else %}
+            <p class="card-text">{{ include.post.excerpt | strip_html | truncate: 150 }}</p>
+            {% endif %}
+            
+            <!-- 文章元信息 -->
+            <div class="post-meta">
+                <small class="text-muted">
+                    <i class="bi bi-calendar"></i>
+                    {{ include.post.date | date: "%Y-%m-%d" }}
+                </small>
+                {% if include.post.author %}
+                <small class="text-muted ms-2">
+                    <i class="bi bi-person"></i>
+                    {{ include.post.author }}
+                </small>
+                {% endif %}
+                <small class="text-muted ms-2">
+                    <i class="bi bi-clock"></i>
+                    <span class="reading-time" data-content="{{ include.post.content | strip_html | size }}">计算中...</span>
+                </small>
+            </div>
+            
+            <!-- 分类和标签 -->
+            {% if include.post.categories %}
+            <div class="post-categories mt-2">
+                {% for category in include.post.categories %}
+                <a href="{{ '/category/' | append: category | relative_url }}" class="badge bg-primary">{{ category }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if include.post.tags %}
+            <div class="post-tags mt-2">
+                {% for tag in include.post.tags limit: 3 %}
+                <a href="{{ '/tag/' | append: tag | relative_url }}" class="badge bg-secondary">{{ tag }}</a>
+                {% endfor %}
+                {% if include.post.tags.size > 3 %}
+                <span class="badge bg-light text-dark">+{{ include.post.tags.size | minus: 3 }}</span>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="card-footer">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="{{ include.post.url | relative_url }}" class="btn btn-primary btn-sm">阅读全文</a>
+                <small class="text-muted">
+                    <i class="bi bi-eye"></i>
+                    <span class="view-count" data-url="{{ include.post.url }}">0</span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 计算阅读时间
+    const readingTimeElements = document.querySelectorAll('.reading-time');
+    readingTimeElements.forEach(function(element) {
+        const contentLength = parseInt(element.dataset.content);
+        const readingTime = Math.ceil(contentLength / 300); // 假设每分钟300字
+        element.textContent = readingTime + ' 分钟';
+    });
+    
+    // 获取访问量
+    const viewCountElements = document.querySelectorAll('.view-count');
+    viewCountElements.forEach(function(element) {
+        const url = element.dataset.url;
+        const pageKey = 'page_views_' + url;
+        const views = localStorage.getItem(pageKey) || 0;
+        element.textContent = views;
+    });
+});
+</script> 

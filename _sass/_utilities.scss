@@ -1,0 +1,237 @@
+// 导入变量
+@import 'variables';
+
+// 间距工具类
+@each $size, $value in $spacers {
+  .m-#{$size} { margin: $value !important; }
+  .mt-#{$size} { margin-top: $value !important; }
+  .mr-#{$size} { margin-right: $value !important; }
+  .mb-#{$size} { margin-bottom: $value !important; }
+  .ml-#{$size} { margin-left: $value !important; }
+  .mx-#{$size} { margin-left: $value !important; margin-right: $value !important; }
+  .my-#{$size} { margin-top: $value !important; margin-bottom: $value !important; }
+  
+  .p-#{$size} { padding: $value !important; }
+  .pt-#{$size} { padding-top: $value !important; }
+  .pr-#{$size} { padding-right: $value !important; }
+  .pb-#{$size} { padding-bottom: $value !important; }
+  .pl-#{$size} { padding-left: $value !important; }
+  .px-#{$size} { padding-left: $value !important; padding-right: $value !important; }
+  .py-#{$size} { padding-top: $value !important; padding-bottom: $value !important; }
+}
+
+// 文本工具类
+.text-primary { color: $primary-color !important; }
+.text-secondary { color: $secondary-color !important; }
+.text-success { color: $success-color !important; }
+.text-danger { color: $danger-color !important; }
+.text-warning { color: $warning-color !important; }
+.text-info { color: $info-color !important; }
+.text-light { color: $light-color !important; }
+.text-dark { color: $dark-color !important; }
+.text-muted { color: $secondary-color !important; }
+
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+.font-weight-light { font-weight: 300 !important; }
+.font-weight-normal { font-weight: 400 !important; }
+.font-weight-bold { font-weight: 700 !important; }
+
+.font-italic { font-style: italic !important; }
+
+// 显示工具类
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+
+// Flexbox 工具类
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-around { justify-content: space-around !important; }
+
+.align-items-start { align-items: flex-start !important; }
+.align-items-end { align-items: flex-end !important; }
+.align-items-center { align-items: center !important; }
+.align-items-baseline { align-items: baseline !important; }
+.align-items-stretch { align-items: stretch !important; }
+
+.align-self-start { align-self: flex-start !important; }
+.align-self-end { align-self: flex-end !important; }
+.align-self-center { align-self: center !important; }
+.align-self-baseline { align-self: baseline !important; }
+.align-self-stretch { align-self: stretch !important; }
+
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse !important; }
+
+.flex-fill { flex: 1 1 auto !important; }
+.flex-grow-0 { flex-grow: 0 !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.flex-shrink-1 { flex-shrink: 1 !important; }
+
+// 位置工具类
+.position-static { position: static !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+.top-0 { top: 0 !important; }
+.right-0 { right: 0 !important; }
+.bottom-0 { bottom: 0 !important; }
+.left-0 { left: 0 !important; }
+
+// 边框工具类
+.border { border: $border-width solid $border-color !important; }
+.border-top { border-top: $border-width solid $border-color !important; }
+.border-right { border-right: $border-width solid $border-color !important; }
+.border-bottom { border-bottom: $border-width solid $border-color !important; }
+.border-left { border-left: $border-width solid $border-color !important; }
+
+.border-0 { border: 0 !important; }
+.border-top-0 { border-top: 0 !important; }
+.border-right-0 { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0 { border-left: 0 !important; }
+
+.border-primary { border-color: $primary-color !important; }
+.border-secondary { border-color: $secondary-color !important; }
+.border-success { border-color: $success-color !important; }
+.border-danger { border-color: $danger-color !important; }
+.border-warning { border-color: $warning-color !important; }
+.border-info { border-color: $info-color !important; }
+.border-light { border-color: $light-color !important; }
+.border-dark { border-color: $dark-color !important; }
+
+// 圆角工具类
+.rounded { border-radius: $border-radius !important; }
+.rounded-top { border-top-left-radius: $border-radius !important; border-top-right-radius: $border-radius !important; }
+.rounded-right { border-top-right-radius: $border-radius !important; border-bottom-right-radius: $border-radius !important; }
+.rounded-bottom { border-bottom-right-radius: $border-radius !important; border-bottom-left-radius: $border-radius !important; }
+.rounded-left { border-top-left-radius: $border-radius !important; border-bottom-left-radius: $border-radius !important; }
+.rounded-circle { border-radius: 50% !important; }
+.rounded-0 { border-radius: 0 !important; }
+
+// 阴影工具类
+.shadow-sm { box-shadow: $box-shadow-sm !important; }
+.shadow { box-shadow: $box-shadow !important; }
+.shadow-lg { box-shadow: $box-shadow-lg !important; }
+.shadow-none { box-shadow: none !important; }
+
+// 溢出工具类
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+// 用户选择工具类
+.user-select-all { user-select: all !important; }
+.user-select-auto { user-select: auto !important; }
+.user-select-none { user-select: none !important; }
+
+// 指针事件工具类
+.pe-none { pointer-events: none !important; }
+.pe-auto { pointer-events: auto !important; }
+
+// 可见性工具类
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+// 背景工具类
+.bg-primary { background-color: $primary-color !important; }
+.bg-secondary { background-color: $secondary-color !important; }
+.bg-success { background-color: $success-color !important; }
+.bg-danger { background-color: $danger-color !important; }
+.bg-warning { background-color: $warning-color !important; }
+.bg-info { background-color: $info-color !important; }
+.bg-light { background-color: $light-color !important; }
+.bg-dark { background-color: $dark-color !important; }
+.bg-white { background-color: white !important; }
+.bg-transparent { background-color: transparent !important; }
+
+// 渐变背景工具类
+.bg-gradient-primary {
+  background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 20%) 100%) !important;
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, $secondary-color 0%, lighten($secondary-color, 20%) 100%) !important;
+}
+
+// 动画工具类
+.fade { transition: opacity 0.15s linear !important; }
+.fade.show { opacity: 1 !important; }
+
+.collapse { display: none !important; }
+.collapse.show { display: block !important; }
+
+.collapsing {
+  position: relative !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  transition: height 0.35s ease !important;
+}
+
+// 响应式工具类
+@media (min-width: 576px) {
+  .d-sm-none { display: none !important; }
+  .d-sm-inline { display: inline !important; }
+  .d-sm-inline-block { display: inline-block !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-flex { display: flex !important; }
+  .d-sm-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: 768px) {
+  .d-md-none { display: none !important; }
+  .d-md-inline { display: inline !important; }
+  .d-md-inline-block { display: inline-block !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+  .d-md-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: 992px) {
+  .d-lg-none { display: none !important; }
+  .d-lg-inline { display: inline !important; }
+  .d-lg-inline-block { display: inline-block !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-flex { display: flex !important; }
+  .d-lg-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-none { display: none !important; }
+  .d-xl-inline { display: inline !important; }
+  .d-xl-inline-block { display: inline-block !important; }
+  .d-xl-block { display: block !important; }
+  .d-xl-flex { display: flex !important; }
+  .d-xl-inline-flex { display: inline-flex !important; }
+}
+
+// 深色主题工具类
+body.dark-theme {
+  .bg-light { background-color: lighten($dark-bg, 10%) !important; }
+  .bg-white { background-color: $dark-bg !important; }
+  .text-dark { color: $dark-text !important; }
+  .border { border-color: lighten($border-color, 20%) !important; }
+} 
