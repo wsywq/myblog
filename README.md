@@ -85,7 +85,7 @@ myblog/
 
 1. **克隆项目**
 ```bash
-git clone https://github.com/yourusername/myblog.git
+git clone https://github.com/wsywq/myblog.git
 cd myblog
 ```
 
@@ -109,7 +109,7 @@ bundle exec jekyll serve
 git init
 git add .
 git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/myblog.git
+git remote add origin https://github.com/wsywq/myblog.git
 git push -u origin main
 ```
 
@@ -159,13 +159,13 @@ author: "作者名"
 title: "我的个人博客"
 description: "分享技术文章和生活感悟"
 author: "你的名字"
-url: "https://yourusername.github.io"
+url: "https://wsywq.github.io"
 
 # 社交媒体
 social:
-  github: yourusername
-  twitter: yourusername
-  email: your.email@example.com
+  github: wsywq
+  twitter: wsywq
+  email: wsywq94@163.com
 
 # 分析工具
 analytics:
@@ -237,9 +237,9 @@ $dark-text: #ffffff;
 
 ## 📞 联系方式
 
-- 邮箱：your.email@example.com
-- GitHub：[@yourusername](https://github.com/yourusername)
-- 博客：[https://yourusername.github.io](https://yourusername.github.io)
+- 邮箱：wsywq94@163.com
+- GitHub：[@wsywq](https://github.com/wsywq)
+- 博客：[https://wsywq.github.io](https://wsywq.github.io)
 
 ---
 
